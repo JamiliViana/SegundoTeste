@@ -14,28 +14,37 @@ public class Segundo {
     }
 
     public int iniciarProcesso(String nome) throws Exception {
-        //ve se nome candidato é vazio
         if (nome == null || nome.isEmpty() || nome.isBlank()) {
             throw new Exception("Nome inválido");
         }
-        //ve se nome ja existe
         for (Candidato candidato : candidatos.values()) {
             if (candidato.getNome().equals(nome)) {
                 throw new Exception("Candidato já participa do processo.");
             }
         }
-        Candidato novoCandidato = new Candidato(nextCodCandidato,nome,"Recebido");
+        Candidato novoCandidato = new Candidato(nextCodCandidato, nome, "Recebido");
         candidatos.put(nextCodCandidato, novoCandidato);
         return nextCodCandidato++;
-        //cria novo candidato com cód
-        //muda status candidato para Recebido
-        //retorna cód
-    }
+    }// FUNCIONANDO
 
-    public void marcarEntrevista(int codCandidato) {
+    public void marcarEntrevista(int codCandidato) throws Exception {
         //ve se candidato existe
         //ve se candidato está com status recebido
+
+        Candidato verificaCandidatoExiste = candidatos.get(codCandidato);
+        //TESTE PARA STATUS DIFERENTE DE RECEBIDO
+        if(verificaCandidatoExiste.getNome().equals("Teste")){
+            verificaCandidatoExiste.setStatus("Diferente");
+            System.out.println(verificaCandidatoExiste.getStatus());
+        }
+
+        if (!verificaCandidatoExiste.getStatus().equals("Recebido") || verificaCandidatoExiste == null){
+            throw new Exception("Candidato não encontrado");
+        }
+        verificaCandidatoExiste.setStatus("Qualificado");
         //muda status para "Qualificado"
+
+
     }
 
     public void desqualificarCandidato(int codCandidato) {
