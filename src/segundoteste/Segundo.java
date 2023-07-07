@@ -35,11 +35,17 @@ public class Segundo {
         verificaCandidatoExiste.setStatus("Qualificado");
     }// FUNCIONANDO
 
-    public void desqualificarCandidato(int codCandidato) {
-        // verifica se candidato existe
-        // exclui candidato e seu nome
-        //status do candidato agora é null
-    }
+    public void desqualificarCandidato(int codCandidato) throws Exception {
+        Candidato verificaCandidato = candidatos.get(codCandidato);
+        if (verificaCandidato == null){
+            throw new Exception("Candidato não encontrado");
+        }else {
+            candidatos.remove(codCandidato);
+            verificaCandidato.setNome(null);
+            verificaCandidato.setStatus(null);
+            verificaCandidato.setCodCandidato(null);
+        }
+    }// FUNCIONANDO
 
     public String verificarStatusCandidato(int codCandidato) {
         //ve se candidato existe
