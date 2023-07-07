@@ -1,5 +1,6 @@
 package segundoteste;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -65,7 +66,13 @@ public class Segundo {
     }// FUNCIONANDO
 
     public List<String> obterAprovados() {
-        return null;
+        List<String> aprovados = new ArrayList<>();
+        for(Candidato candidato: candidatos.values()){
+            if (candidato.getStatus().equals("Aprovado")){
+                aprovados.add(candidato.getNome());
+            }
+        }
+        return aprovados;
     }
 
 
