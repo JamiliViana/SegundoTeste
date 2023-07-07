@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Segundo {
     private Integer nextCodCandidato;// vai permitir que os id seja sequenciail e único por candidato
-    private Map<Integer, Candidato> candidatos;//cada candidato será identificado pelo seu código ou ID
+    private Map<Integer, Candidato> candidatos;//cada candidato será identificado pelo seu código ou ID pois é único
 
     public Segundo() {
         this.nextCodCandidato = 1;
@@ -26,7 +26,7 @@ public class Segundo {
         Candidato novoCandidato = new Candidato(nextCodCandidato, nome, "Recebido");
         candidatos.put(nextCodCandidato, novoCandidato);
         return nextCodCandidato++;
-    }// FUNCIONANDO
+    }
 
     public void marcarEntrevista(int codCandidato) throws Exception {
         Candidato verificaCandidatoExiste = candidatos.get(codCandidato);
@@ -34,7 +34,7 @@ public class Segundo {
             throw new Exception("Candidato não encontrado");
         }
         verificaCandidatoExiste.setStatus("Qualificado");
-    }// FUNCIONANDO
+    }
 
     public void desqualificarCandidato(int codCandidato) throws Exception {
         Candidato verificaCandidato = candidatos.get(codCandidato);
@@ -46,7 +46,7 @@ public class Segundo {
             verificaCandidato.setStatus(null);
             verificaCandidato.setCodCandidato(null);
         }
-    }// FUNCIONANDO
+    }
 
     public String verificarStatusCandidato(int codCandidato) throws Exception {
         //ve se candidato existe
@@ -55,7 +55,7 @@ public class Segundo {
             throw new Exception("Candidato não encontrado");
         }
         return verificaCandidatoExiste.getStatus();
-    }// FUNCIONANDO
+    }
 
     public void aprovarCandidato(int codCandidato) throws Exception {
         Candidato verificaCandidatoExiste = candidatos.get(codCandidato);
@@ -63,7 +63,7 @@ public class Segundo {
             throw new Exception("Candidato não encontrado");
         }
         verificaCandidatoExiste.setStatus("Aprovado");
-    }// FUNCIONANDO
+    }
 
     public List<String> obterAprovados() {
         List<String> aprovados = new ArrayList<>();
@@ -73,16 +73,6 @@ public class Segundo {
             }
         }
         return aprovados;
-    }
-
-
-    private Candidato getCandidatoByCod(int codCandidato) {
-        for (Candidato candidato : candidatos.values()) {
-            if (candidato.getCodCandidato() == codCandidato) {
-                return candidato;
-            }
-        }
-        return null;
     }
 
     private class Candidato {
