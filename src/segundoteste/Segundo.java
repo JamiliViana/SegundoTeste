@@ -47,10 +47,14 @@ public class Segundo {
         }
     }// FUNCIONANDO
 
-    public String verificarStatusCandidato(int codCandidato) {
+    public String verificarStatusCandidato(int codCandidato) throws Exception {
         //ve se candidato existe
-        return "teste";
-    }
+        Candidato verificaCandidatoExiste = candidatos.get(codCandidato);
+        if (verificaCandidatoExiste == null){
+            throw new Exception("Candidato não encontrado");
+        }
+        return verificaCandidatoExiste.getStatus();
+    }// FUNCIONANDO
 
     public void aprovarCandidato(int codCandidato) {
         // ve se candidato existe

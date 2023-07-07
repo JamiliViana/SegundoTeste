@@ -34,6 +34,14 @@ public class MainTeste {
             System.out.println("Erro: " + e.getMessage());
         }
 
+        System.out.println("Digite o ID do candidato:");
+        int idVerificarStatus = Integer.parseInt(scanner.nextLine());
+        try {
+            String statusCandidato = sistemaRH.verificarStatusCandidato(idVerificarStatus);
+            System.out.println("Status do candidato: " + statusCandidato);
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
 
     }
 
