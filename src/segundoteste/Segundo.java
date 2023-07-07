@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Segundo {
-    private Integer nextCodCandidato;// vai permitir que os id seja sequenciail e único por candidato
+    private Integer nextCodCandidato;// vai permitir que o id seja sequencial e único por candidato
     private Map<Integer, Candidato> candidatos;//cada candidato será identificado pelo seu código ou ID pois é único
 
     public Segundo() {
