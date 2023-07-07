@@ -56,11 +56,13 @@ public class Segundo {
         return verificaCandidatoExiste.getStatus();
     }// FUNCIONANDO
 
-    public void aprovarCandidato(int codCandidato) {
-        // ve se candidato existe
-        // ve se status candidato é "Qualificado"
-        // muda status para "Aprovado"
-    }
+    public void aprovarCandidato(int codCandidato) throws Exception {
+        Candidato verificaCandidatoExiste = candidatos.get(codCandidato);
+        if (verificaCandidatoExiste == null || !verificaCandidatoExiste.getStatus().equals("Qualificado")){
+            throw new Exception("Candidato não encontrado");
+        }
+        verificaCandidatoExiste.setStatus("Aprovado");
+    }// FUNCIONANDO
 
     public List<String> obterAprovados() {
         return null;
