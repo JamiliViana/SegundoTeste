@@ -28,24 +28,12 @@ public class Segundo {
     }// FUNCIONANDO
 
     public void marcarEntrevista(int codCandidato) throws Exception {
-        //ve se candidato existe
-        //ve se candidato está com status recebido
-
         Candidato verificaCandidatoExiste = candidatos.get(codCandidato);
-        //TESTE PARA STATUS DIFERENTE DE RECEBIDO
-        if(verificaCandidatoExiste.getNome().equals("Teste")){
-            verificaCandidatoExiste.setStatus("Diferente");
-            System.out.println(verificaCandidatoExiste.getStatus());
-        }
-
-        if (!verificaCandidatoExiste.getStatus().equals("Recebido") || verificaCandidatoExiste == null){
+        if (verificaCandidatoExiste == null || !verificaCandidatoExiste.getStatus().equals("Recebido")){
             throw new Exception("Candidato não encontrado");
         }
         verificaCandidatoExiste.setStatus("Qualificado");
-        //muda status para "Qualificado"
-
-
-    }
+    }// FUNCIONANDO
 
     public void desqualificarCandidato(int codCandidato) {
         // verifica se candidato existe
